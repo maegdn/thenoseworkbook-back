@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const uid2 = require("uid2");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -17,6 +18,10 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  token: {
+    type: String,
+    default: () => uid2(32)
   }
 });
 
